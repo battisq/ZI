@@ -139,7 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="common\ByteArray.cpp" />
+    <ClCompile Include="common\FileHelper.cpp" />
+    <ClCompile Include="lab1\algorithm\VernamCipher.cpp" />
     <ClCompile Include="ZI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\ByteArray.h" />
+    <ClInclude Include="common\FileHelper.h" />
+    <ClInclude Include="lab1\algorithm\VernamCipher.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="lab1\files\sample_text.txt" />
+    <Text Include="lab1\files\_sample_text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

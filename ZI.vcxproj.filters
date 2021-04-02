@@ -13,10 +13,43 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\common">
+      <UniqueIdentifier>{c56f819d-8e5d-4ef0-9a8a-a82961a613c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\lab1">
+      <UniqueIdentifier>{bab6dc4c-acbc-4ea2-a799-00f1535a1e07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\lab1\files">
+      <UniqueIdentifier>{57bb5147-1cbb-4788-85b7-1312c68c9011}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ZI.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="common\FileHelper.cpp">
+      <Filter>Исходные файлы\common</Filter>
+    </ClCompile>
+    <ClCompile Include="lab1\algorithm\VernamCipher.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="common\ByteArray.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\FileHelper.h">
+      <Filter>Исходные файлы\common</Filter>
+    </ClInclude>
+    <ClInclude Include="lab1\algorithm\VernamCipher.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="common\ByteArray.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="lab1\files\sample_text.txt" />
+    <Text Include="lab1\files\_sample_text.txt" />
   </ItemGroup>
 </Project>
