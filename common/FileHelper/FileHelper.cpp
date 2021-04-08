@@ -43,6 +43,12 @@ namespace files {
 		return readText(path + DECRYPTED_TEXT);
 	}
 
+	FileHelper FileHelper::operator=(const FileHelper& helper) {
+		path = helper.path;
+		
+		return *this;
+	}
+
 	string FileHelper::readText(const string path) {
 		string tempText;
 		stringstream fullText;

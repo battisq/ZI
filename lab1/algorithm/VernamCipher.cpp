@@ -1,7 +1,7 @@
 #include "VernamCipher.h"
 #include <ctime>
 
-ByteArray algorithm::VernamCipher::generateKey(const int length) {
+ByteArray algorithms::VernamCipher::generateKey(const int length) {
 	ByteArray bytes = length;
 	
 	srand(time(0));
@@ -13,7 +13,7 @@ ByteArray algorithm::VernamCipher::generateKey(const int length) {
 	return bytes;
 }
 
-const ByteArray algorithm::VernamCipher::encrypt(const string text, const ByteArray key) {
+const ByteArray algorithms::VernamCipher::encrypt(const string text, const ByteArray key) {
 	ByteArray bytes = key.getLength();
 	ByteArray text_ = ByteArray((string)text);
 	
@@ -24,7 +24,7 @@ const ByteArray algorithm::VernamCipher::encrypt(const string text, const ByteAr
 	return bytes;
 }
 
-string algorithm::VernamCipher::decrypt(const ByteArray text, const ByteArray key) {
+string algorithms::VernamCipher::decrypt(const ByteArray text, const ByteArray key) {
 	ByteArray bytes = key.getLength();
 
 	for (int i = 0; i < key.getLength(); i++) {

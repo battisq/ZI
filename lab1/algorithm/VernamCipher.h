@@ -1,12 +1,12 @@
 #pragma once
 #include <string>
-#include "../../common/ByteArray.h"
+#include "../../common/ByteArray/ByteArray.h"
 
 typedef unsigned char byte;
 
 using namespace std;
 
-namespace algorithm {
+namespace algorithms {
 	class VernamCipher {
 	private:
 		VernamCipher() { }

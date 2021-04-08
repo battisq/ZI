@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "../common/ByteArray.h"
+#include "../../common/ByteArray/ByteArray.h"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ namespace files {
 		
 		const string LAB_PATH = PROJECT_PATH + "\\lab%d\\files\\";
 
-		const string SAMPLE_TEXT = "sample_text.txt";
+		const string SAMPLE_TEXT = "_sample_text.txt";
 		const string ENCRYPTION_KEY = "encryption_key.txt";
 		const string CIPHER_TEXT = "cipher_text.txt";
 		const string DECRYPTED_TEXT = "decrypted_text.txt";
@@ -42,5 +42,7 @@ namespace files {
 
 		void writeDecryptedText(string text);
 		string readDecryptedText();
+
+		FileHelper operator = (const FileHelper& helper);
 	};
 }
