@@ -35,7 +35,8 @@ namespace files {
 		string readSampleText();
 
 		void writeEncryptionKey(ByteArray key);
-		ByteArray readEncryptionKey();
+		ByteArray readByteEncryptionKey();
+		string readStringEncryptionKey();
 
 		void writeCipherText(ByteArray text);
 		ByteArray readCipherText();

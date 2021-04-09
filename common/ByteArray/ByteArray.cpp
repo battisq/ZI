@@ -3,7 +3,7 @@
 #include <iostream>
 
 ByteArray::ByteArray(int _length, byte* byteArray) {
-	if (_length < 1)
+	if (_length < 0)
 		throw new invalid_argument("Длина должна быть больше 0");
 
 	length = _length;

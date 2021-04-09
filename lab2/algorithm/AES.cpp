@@ -20,7 +20,7 @@ namespace algorithms {
 
     TMatrix<byte> AES::invMixColumns(TMatrix<byte> s) {
 
-        int sp[4];
+        byte sp[4];
         byte b02 = (byte)0x0e, b03 = (byte)0x0b, b04 = (byte)0x0d, b05 = (byte)0x09;
 
         for (int c = 0; c < 4; c++) {
@@ -30,7 +30,7 @@ namespace algorithms {
             sp[3] = ffMul(b03, s[0][c]) ^ ffMul(b04, s[1][c]) ^ ffMul(b05, s[2][c]) ^ ffMul(b02, s[3][c]);
 
             for (int i = 0; i < 4; i++) {
-                s[i][c] = (byte)(sp[i]);
+                s[i][c] = sp[i];
             }
         }
 
@@ -84,10 +84,14 @@ namespace algorithms {
 
     ByteArray AES::rotWord(ByteArray input) {
         ByteArray tmp = ByteArray(input.getLength());
-        tmp[0] = input[1];
-        tmp[1] = input[2];
-        tmp[2] = input[3];
-        tmp[3] = input[0];
+        int n = input.getLength();
+
+        for (int i = 0; i < n; i++) {
+            if (i + 1 < n)
+                tmp[i] = input[i + 1];
+            else
+                tmp[n - 1] = input[0];
+        }
 
         return tmp;
     }
@@ -130,7 +134,6 @@ namespace algorithms {
         return tmp;
     }
 
-    // TODO
     byte AES::ffMul(byte a, byte b) {
         byte aa = a, bb = b, r = 0, t;
 
@@ -152,15 +155,13 @@ namespace algorithms {
         return r;
     }
 
-    // TODO: Переименовать
-    TMatrix<byte> AES::generateSubkeys(ByteArray key) {
+    TMatrix<byte> AES::keyExpansion(ByteArray key) {
         TMatrix<byte> tmp = TMatrix<byte>(Nb * (Nr + 1), 4);
 
         for (int i = 0; i < Nk; i++) {
-            tmp[i][0] = key[i * 4];
-            tmp[i][1] = key[i * 4 + 1];
-            tmp[i][2] = key[i * 4 + 2];
-            tmp[i][3] = key[i * 4 + 3];
+            for (int j = 0; j < 4; j++) {
+                tmp[i][j] = key[i * 4 + j];
+            }
         }
        
         for (int i = Nk; i < Nb * (Nr + 1); i++) {
@@ -172,7 +173,6 @@ namespace algorithms {
             
             if (i % Nk == 0) {
                 temp = subWord(rotWord(temp));
-                // TODO: Индексирование
                 temp[0] = (byte)(temp[0] ^ (rcon[i / Nk] & 0xff));
             } else if (Nk > 6 && i % Nk == 4) {
                 temp = subWord(temp);
@@ -188,12 +188,9 @@ namespace algorithms {
 
             ByteArray result = 4;
             result = xorFunction(tmp2, temp);
-            // tmp[i] = xorFunction(tmp2, temp);
-            tmp[i][0] = result[0];
-            tmp[i][1] = result[1];
-            tmp[i][2] = result[2];
-            tmp[i][3] = result[3];
-            i++;
+         
+            for (int j = 0; j < 4; j++)
+                tmp[i][j] = result[j];
         }
 
         return tmp;
@@ -254,7 +251,6 @@ namespace algorithms {
             state = invShiftRows(state);
             state = addRoundKey(state, w, round);
             state = invMixColumns(state);
-
         }
         
         state = invSubBytes(state);
@@ -291,7 +287,7 @@ namespace algorithms {
         ByteArray tmp = inp.getLength() + length;
         ByteArray bloc = 16;
 
-        w = generateSubkeys(key);
+        w = keyExpansion(key);
 
         int count = 0;
         int i;
@@ -328,7 +324,7 @@ namespace algorithms {
         Nb = 4;
         Nk = key.getLength() / 4;
         Nr = Nk + 6;
-        w = generateSubkeys(key);
+        w = keyExpansion(key);
 
 
         for (i = 0; i < inp.getLength(); i++) {

@@ -23,8 +23,12 @@ namespace files {
 		writeBytes(path + ENCRYPTION_KEY, key);
 	}
 
-	ByteArray FileHelper::readEncryptionKey() {
+	ByteArray FileHelper::readByteEncryptionKey() {
 		return readBytes(path + ENCRYPTION_KEY);
+	}
+
+	string FileHelper::readStringEncryptionKey() {
+		return readText(path + ENCRYPTION_KEY);
 	}
 
 	void FileHelper::writeCipherText(ByteArray text) {

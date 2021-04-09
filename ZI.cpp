@@ -41,11 +41,11 @@ int main() {
 
 void lab1() {
     string sampleText = helper->readSampleText();
-    
+     
     ByteArray key = VernamCipher::generateKey(sampleText.length());
     helper->writeEncryptionKey(key);
 
-    key = helper->readEncryptionKey();
+    key = helper->readByteEncryptionKey();
     ByteArray en = VernamCipher::encrypt(sampleText, key);
     helper->writeCipherText(en);
     
@@ -62,15 +62,15 @@ void lab2() {
     try {
         AES aes = AES();
 
+        string key = helper->readStringEncryptionKey();
         string sampleText = helper->readSampleText();
-        //ByteArray key = helper->readEncryptionKey();
-        string key = "fhweoie98wfuhnsc";
 
         ByteArray en = aes.encrypt(sampleText, key);
         helper->writeCipherText(en);
 
         en = helper->readCipherText();
         string de = aes.decrypt(en, key);
+        helper->writeDecryptedText(de);
 
         cout << "Изначальный текст:\n" << sampleText << endl << endl;
         cout << "Ключ шифрования:\n" << key << endl << endl;

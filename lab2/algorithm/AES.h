@@ -27,7 +27,7 @@ namespace algorithms {
 		ByteArray subWord(ByteArray inp);
 
 		byte ffMul(byte a, byte b);
-		TMatrix<byte> generateSubkeys(ByteArray key);
+		TMatrix<byte> keyExpansion(ByteArray key);
 		ByteArray xorFunction(ByteArray a, ByteArray b);
 		ByteArray encryptBloc(ByteArray inp);
 		ByteArray decryptBloc(ByteArray inp);
@@ -38,5 +38,4 @@ namespace algorithms {
 		ByteArray encrypt(string text, string key);
 		string decrypt(ByteArray encryptText, string key);
 	};
-
 };
