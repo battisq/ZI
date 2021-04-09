@@ -2,7 +2,6 @@
 #include <clocale>
 #include <Windows.h>
 #include "common/FileHelper/FileHelper.h"
-#include "lab1/algorithm/VernamCipher.h"
 #include "lab2/algorithm/AES.h"
 
 using namespace std;
@@ -20,42 +19,10 @@ int main() {
     int lab = 2;
     helper = new FileHelper(lab);
 
-    switch (lab) {
-        case 1: {
-            lab1();
-            break;
-        }
-
-        case 2: {
-            lab2();
-            break;
-        }
-
-        default:
-            break;
-    }
+    lab2();
 
     cin.get();
     return 0;
-}
-
-void lab1() {
-    string sampleText = helper->readSampleText();
-     
-    ByteArray key = VernamCipher::generateKey(sampleText.length());
-    helper->writeEncryptionKey(key);
-
-    key = helper->readByteEncryptionKey();
-    ByteArray en = VernamCipher::encrypt(sampleText, key);
-    helper->writeCipherText(en);
-    
-    en = helper->readCipherText();
-    string de = VernamCipher::decrypt(en, key);
-
-    cout << "Изначальный текст:\n" << sampleText << endl << endl;
-    cout << "Ключ шифрования:\n" << key << endl << endl;
-    cout << "Зашифрованный текст:\n" << en << endl << endl;
-    cout << "Расшифрованный текст:\n" << de;
 }
 
 void lab2() {

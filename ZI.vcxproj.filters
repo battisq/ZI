@@ -30,9 +30,6 @@
     <ClCompile Include="common\FileHelper\FileHelper.cpp">
       <Filter>Исходные файлы\common</Filter>
     </ClCompile>
-    <ClCompile Include="lab1\algorithm\VernamCipher.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="common\ByteArray\ByteArray.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -43,9 +40,6 @@
   <ItemGroup>
     <ClInclude Include="common\FileHelper\FileHelper.h">
       <Filter>Исходные файлы\common</Filter>
-    </ClInclude>
-    <ClInclude Include="lab1\algorithm\VernamCipher.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="common\ByteArray\ByteArray.h">
       <Filter>Файлы заголовков</Filter>
@@ -58,8 +52,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="lab1\files\sample_text.txt" />
-    <Text Include="lab1\files\_sample_text.txt" />
     <Text Include="lab2\files\sample_text.txt" />
     <Text Include="lab2\files\_sample_text.txt" />
   </ItemGroup>
