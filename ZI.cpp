@@ -1,9 +1,11 @@
 ﻿#include <iostream>
 #include <clocale>
 #include <Windows.h>
+#include <stdio.h>
 #include "common/FileHelper/FileHelper.h"
 #include "lab1/algorithm/VernamCipher.h"
 #include "lab2/algorithm/AES.h"
+#include "lab3/algorithm/ShamirСipher.h"
 
 using namespace std;
 using namespace files;
@@ -11,13 +13,24 @@ using namespace algorithms;
 
 void lab1();
 void lab2();
+void lab3();
 
 static FileHelper *helper;
 
 int main() {
     setlocale(LC_ALL, "Rus");
 
-    int lab = 2;
+    //long a = 27, n = 796;
+
+
+    //printf("the inverse of %ld modulo %2ld is %ld\n", a, n, inverse(a, n));
+
+    //a = 151, n = 796;
+
+    //printf("the inverse of %ld modulo %2ld is %ld\n", a, n, inverse(a, n));
+
+
+    int lab = 3;
     helper = new FileHelper(lab);
 
     switch (lab) {
@@ -28,6 +41,11 @@ int main() {
 
         case 2: {
             lab2();
+            break;
+        }
+
+        case 3: {
+            lab3();
             break;
         }
 
@@ -77,6 +95,21 @@ void lab2() {
         cout << "Зашифрованный текст:\n" << en << endl << endl;
         cout << "Расшифрованный текст:\n" << de;
     } 
+    catch (exception ex) {
+        cout << ex.what();
+    }
+}
+
+void lab3() {
+    try {
+        int p = 739;
+
+        ShamirСipher chipher = p;
+
+        string sampleText = helper->readSampleText();
+
+        chipher.run(sampleText, *helper);
+    }
     catch (exception ex) {
         cout << ex.what();
     }

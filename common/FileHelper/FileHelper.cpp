@@ -1,7 +1,6 @@
 #include "FileHelper.h"
 
 #include <stdexcept>
-#include <fstream>
 #include <sstream>
 
 namespace files {
@@ -11,6 +10,8 @@ namespace files {
 			throw new invalid_argument("This lab is not listed");
 
 		path = PROJECT_PATH + "\\lab" + to_string(labNum) +"\\files\\";
+		
+		writeText(path + LOG_PROCESS, "");
 	}
 
 	FileHelper::~FileHelper() { }
@@ -53,6 +54,10 @@ namespace files {
 		return *this;
 	}
 
+	void FileHelper::addToProcessLog(string text) {
+		writeText(path + LOG_PROCESS, text, ios_base::app);
+	}
+
 	string FileHelper::readText(const string path) {
 		string tempText;
 		stringstream fullText;
@@ -72,8 +77,8 @@ namespace files {
 		return fullText.str();
 	}
 
-	void FileHelper::writeText(const string path, const string text) {
-		ofstream out(path, ios::out);
+	void FileHelper::writeText(const string path, const string text, ios_base::openmode mode) {
+		ofstream out(path, mode);
 
 		if (out.is_open()) {
 			out << text;

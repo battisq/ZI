@@ -139,24 +139,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="lab2\algorithm\AES.cpp" />
     <ClCompile Include="common\ByteArray\ByteArray.cpp" />
+    <ClCompile Include="lab2\algorithm\AES.cpp" />
     <ClCompile Include="common\FileHelper\FileHelper.cpp" />
     <ClCompile Include="lab1\algorithm\VernamCipher.cpp" />
+    <ClCompile Include="lab3\algorithm\ShamirСipher.cpp" />
     <ClCompile Include="ZI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="common\List\List.h" />
+    <ClInclude Include="lab3\algorithm\AlphabetConfig.h" />
     <ClInclude Include="lab2\algorithm\AES.h" />
     <ClInclude Include="common\ByteArray\ByteArray.h" />
     <ClInclude Include="common\FileHelper\FileHelper.h" />
     <ClInclude Include="lab1\algorithm\VernamCipher.h" />
     <ClInclude Include="lab2\algorithm\AESConfig.h" />
+    <ClInclude Include="lab3\algorithm\ShamirСipher.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="lab1\files\sample_text.txt" />
     <Text Include="lab1\files\_sample_text.txt" />
     <Text Include="lab2\files\sample_text.txt" />
     <Text Include="lab2\files\_sample_text.txt" />
+    <Text Include="lab3\files\sample_text.txt" />
+    <Text Include="lab3\files\_sample_text.txt" />
+    <Text Include="lab3\files\__sample_text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

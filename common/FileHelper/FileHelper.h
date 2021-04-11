@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <fstream>
 #include "../../common/ByteArray/ByteArray.h"
 
 using namespace std;
@@ -15,15 +16,16 @@ namespace files {
 		
 		const string LAB_PATH = PROJECT_PATH + "\\lab%d\\files\\";
 
-		const string SAMPLE_TEXT = "_sample_text.txt";
+		const string SAMPLE_TEXT = "sample_text.txt";
 		const string ENCRYPTION_KEY = "encryption_key.txt";
 		const string CIPHER_TEXT = "cipher_text.txt";
 		const string DECRYPTED_TEXT = "decrypted_text.txt";
+		const string LOG_PROCESS = "log_process.txt";
 
 		string path;
 
 		string readText(const string path);
-		void writeText(const string path, const string text);
+		void writeText(const string path, const string text, ios_base::openmode mode = ios_base::out);
 
 		const ByteArray readBytes(const string path);
 		void writeBytes(string path, const ByteArray text);
@@ -45,5 +47,7 @@ namespace files {
 		string readDecryptedText();
 
 		FileHelper operator = (const FileHelper& helper);
+
+		void addToProcessLog(string text);
 	};
 }

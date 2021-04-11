@@ -33,10 +33,13 @@
     <ClCompile Include="lab1\algorithm\VernamCipher.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="common\ByteArray\ByteArray.cpp">
+    <ClCompile Include="lab2\algorithm\AES.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="lab2\algorithm\AES.cpp">
+    <ClCompile Include="lab3\algorithm\ShamirСipher.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="common\ByteArray\ByteArray.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,11 +59,23 @@
     <ClInclude Include="lab2\algorithm\AES.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="lab3\algorithm\ShamirСipher.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="lab3\algorithm\AlphabetConfig.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="common\List\List.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="lab1\files\sample_text.txt" />
     <Text Include="lab1\files\_sample_text.txt" />
     <Text Include="lab2\files\sample_text.txt" />
     <Text Include="lab2\files\_sample_text.txt" />
+    <Text Include="lab3\files\_sample_text.txt" />
+    <Text Include="lab3\files\sample_text.txt" />
+    <Text Include="lab3\files\__sample_text.txt" />
   </ItemGroup>
 </Project>
